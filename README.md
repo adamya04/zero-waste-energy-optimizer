@@ -1,44 +1,49 @@
-Zero Waste Energy Optimizer
+# Zero Waste Energy Optimizer
 
-A Streamlit-based application leveraging AI, blockchain, and multimodal analytics to optimize inventory management, reduce food waste, and align with UN Sustainable Development Goals (SDGs) 12 (Responsible Consumption) and 13 (Climate Action). This project integrates predictive modeling, real-time weather data, blockchain transparency, and agentic AI to drive sustainable supply chains.
-Features
+![Zero Waste Energy Optimizer Logo](frontend/public/assets/logo.png)
 
-Predictive Modeling & Machine Learning: Uses LSTM, GRU, Transformer, XGBoost, and RandomForest models to predict spoilage risks, reducing waste by up to 20% in simulated tests.
-OpenWeather Integration: Fetches real-time weather data (temperature, humidity) to assess environmental impacts on inventory.
-Blockchain Transparency: Tracks donations and sustainability actions via a Web3-based ledger (http://localhost:5002), ensuring trust and auditability.
-Agentic AI: Interactive chat interface (Hugging Face-based) for real-time insights on inventory and sustainability metrics.
-Multimodal Analytics: Displays 19 visualizations (e.g., 3D spoilage-CO2 plots, global sustainability maps) using Plotly, served from backend/analytics/.
-Sustainability Tracking: Monitors CO2 reduction (e.g., 0.85 tons saved) and SDG alignment via an interactive SDG wheel.
-Report Generation: Produces PDF reports of blockchain transactions and sustainability metrics for ESG compliance.
-Customizable UI: Features dark/bright themes, neon-green accents (#00FF00), Orbitron font, and compact Lottie animations (80x80px).
-Real-Time Updates: Polls backend APIs every 5 seconds for live data.
+A Streamlit-based app leveraging **AI**, **blockchain**, and **multimodal analytics** to optimize inventory, reduce food waste, and align with UN SDGs 12 (Responsible Consumption) and 13 (Climate Action). It integrates predictive AI, Stellar Testnet blockchain, real-time weather data, and a chatbot for sustainable supply chain management.
 
-Tech Stack
+## Features
 
-Frontend: Streamlit, Plotly, streamlit-lottie
-Backend: Flask (APIs: http://localhost:5000, 5001, 5002), WebSockets
-Data Processing: Pandas, NumPy, OpenPyXL
-APIs: OpenWeather API, Kaggle API, custom Flask APIs
-Blockchain: Web3.py for donation/sustainability tracking
-Database: PostgreSQL (inventory, transactions)
-Assets: Lottie animations, SVG icons, PNG visualizations
-Styling: Custom CSS, Orbitron font, neon-green theme
-Deployment: Local hosting (http://localhost:8501)
+- **AI-Powered Predictions**: LSTM, GRU, Transformer, XGBoost, and RandomForest models predict spoilage risks, cutting waste by up to 20% in tests.
+- **AI Chatbot**: Hugging Face-powered (DistilGPT2, BART) chatbot provides real-time insights on inventory, spoilage, and sustainability.
+- **Blockchain Transparency**: Tracks donations and sustainability updates on Stellar Testnet (`http://localhost:5002`).
+- **Multimodal Analytics**: 19 Tron-inspired visualizations (3D plots, interactive globes, neon bar charts) using Plotly.
+- **Sustainability Tracking**: Monitors CO2 reduction (e.g., 0.85 tons saved) and SDG alignment.
+- **Reports**: Generates PDF reports for ESG compliance.
+- **UI**: Neon-green theme (`#00FF00`), Orbitron font, compact logo (60x60px), 80x80px Lottie animations, rounded buttons, and enhanced sidebar with glowing text.
 
-Prerequisites
+## Tech Stack
 
-Python 3.11+
-Git
-PostgreSQL
-OpenWeather API key
-Kaggle API key (for synthetic data)
-Node.js (optional, for Lottie animations)
+- **Frontend**: Streamlit, Plotly, streamlit-lottie
+- **Backend**: Flask (APIs: `http://localhost:5000`, `5001`, `5002`), WebSockets
+- **AI**: Hugging Face (DistilGPT2, BART), TensorFlow, PyTorch
+- **Data**: Pandas, NumPy, OpenPyXL
+- **APIs**: OpenWeather, Kaggle, Flask APIs
+- **Blockchain**: Stellar Testnet, Web3.py
+- **Database**: PostgreSQL
+- **Assets**: Lottie animations (eco-animation.json, sdg-animation.json, carbon-footprint.json), SVG icons, PNGs
+- **Styling**: Custom CSS, neon-green theme with gradient animations
+- **Deployment**: Local (`http://localhost:8501`)
 
-Setup
+## Prerequisites
 
-Clone the Repository:
-git clone https://github.com/yourusername/zero-waste-energy-optimizer.git
-cd zero-waste-energy-optimizer
+- Python 3.11+
+- Git
+- PostgreSQL
+- OpenWeather API key
+- Kaggle API key
+- Hugging Face API token
+- Stellar Testnet account
+- Node.js (optional, for Lottie animations)
+
+## Setup
+
+1. **Clone Repository**:
+   ```bash
+   git clone https://github.com/adamya04/zero-waste-energy-optimizer.git
+   cd zero-waste-energy-optimizer
 
 
 Set Up Virtual Environment:
@@ -49,76 +54,48 @@ backend\venv\Scripts\activate  # Windows
 
 Install Dependencies:
 pip install -r backend/requirements.txt
-
-If requirements.txt is missing, install manually:
-pip install streamlit pandas numpy requests plotly streamlit-lottie openpyxl flask flask-socketio psycopg2-binary web3
+pip install streamlit pandas numpy requests plotly streamlit-lottie openpyxl flask flask-socketio psycopg2-binary web3 transformers torch stellar-sdk
 
 
 Configure Environment:
 
-Create .env in backend/ (not tracked):OPENWEATHER_API_KEY=your_api_key
+Create backend/.env (not tracked):OPENWEATHER_API_KEY=your_api_key
 KAGGLE_USERNAME=your_kaggle_username
 KAGGLE_KEY=your_kaggle_key
+HUGGINGFACE_TOKEN=your_hf_token
+STELLAR_OPERATOR_SECRET=your_stellar_secret
 DATABASE_URL=postgresql://user:password@localhost:5432/zero_waste
 FLASK_ENV=development
 
 
-Get API keys from OpenWeather and Kaggle.
 
 
 Set Up PostgreSQL:
-
-Install PostgreSQL and create a database:psql -U postgres -c "CREATE DATABASE zero_waste;"
-
-
-Run database_setup.py:cd backend
+psql -U postgres -c "CREATE DATABASE zero_waste;"
+cd backend
 python database_setup.py
 
-
-Add lat and lon columns to inventory table:ALTER TABLE inventory ADD COLUMN lat FLOAT, ADD COLUMN lon FLOAT;
+Add lat and lon:
+ALTER TABLE inventory ADD COLUMN lat FLOAT, ADD COLUMN lon FLOAT;
 UPDATE inventory SET lat = 40.7128, lon = -74.0060 WHERE store_id = 'store_1';
 
 
-
-
-Verify Assets:
-
-Ensure frontend/public/assets/ contains:
-logo.png, eco-icon.svg, store-icon.svg, chat-icon.svg
-banana.png, apple.png, berries.png, lettuce.png
-eco-animation.json, sdg-animation.json, carbon-footprint.json (from LottieFiles)
-
-
-Ensure backend/analytics/ contains:
-PNGs: 3d_spoilage_co2_sustainability.png, etc.
-HTMLs: carbon_emission_trajectory.html, etc.
-CSVs/Excel: performance_metrics.csv, sustainability_metrics_report.xlsx
-
-
-
-
-Generate Synthetic Data (if needed):
+Generate Synthetic Data:
 cd backend
-python data_simulation.py
+python data_collection.py
 
 
 
 Running the Application
 
-Start Backend Servers:Open three terminals:
+Start Backend Servers (three terminals):
 cd backend
-source venv/bin/activate  # or backend\venv\Scripts\activate
+source venv/bin/activate
 python app.py
-
-cd backend
-source venv/bin/activate
 python agentic_ai.py
-
-cd backend
-source venv/bin/activate
 python blockchain_integration.py
 
-Verify endpoints:
+Verify:
 curl http://localhost:5000/api/inventory/store_1
 curl http://localhost:5001/api/agent -H "Content-Type: application/json" -d '{"query": "What is the spoilage risk?"}'
 curl http://localhost:5002/api/blockchain/transactions/store_1
@@ -126,44 +103,43 @@ curl http://localhost:5002/api/blockchain/transactions/store_1
 
 Start Streamlit:
 cd frontend
-source ../backend/venv/bin/activate  # or backend\venv\Scripts\activate
+source ../backend/venv/bin/activate
 streamlit run streamlit_app.py
 
-Access at http://localhost:8501. If port 8501 is busy:
-streamlit run streamlit_app.py --server.port 8502
-
+Access: http://localhost:8501
 
 
 Usage
 
-Dashboard: View real-time inventory, sustainability scores, donation potential, and CO2 reduction.
-Customer App: Browse items and make blockchain-tracked donations.
-Analytics: Explore 19 visualizations (e.g., 3D plots, heatmaps) with tooltips.
-AI Agent Chat: Query sustainability or inventory insights (e.g., “What’s the CO2 reduction?”).
-Sustainability Tracker: Monitor SDG alignment and CO2 savings via interactive charts.
-Report Generator: Download PDF reports for sustainability and blockchain metrics.
-Blockchain Analytics: View transaction logs and CO2 impact.
+Dashboard: Real-time inventory, sustainability scores, CO2 reduction metrics.
+Customer App: Browse items, make blockchain-tracked donations with animated feedback.
+Analytics: 19 visualizations (3D scatter plots, heatmaps, interactive globes) with tooltips.
+AI Chatbot: Query sustainability insights via Hugging Face-powered agent.
+Sustainability Tracker: Monitors SDG alignment and CO2 reduction with pie charts and counters.
+Reports: Download PDF sustainability/blockchain reports.
+Blockchain Analytics: View transaction summaries and metrics with neon-styled bar charts.
 
 Data Sources
 
-Synthetic Data: Simulated via data_simulation.py (replaceable with IoT sensor data for temperature/humidity).
-OpenWeather API: Real-time weather data for environmental impact analysis.
-Kaggle API: Synthetic datasets for model training.
-Blockchain: Web3-based ledger for donation and sustainability tracking.
+Synthetic Data: Generated via data_collection.py.
+OpenWeather API: Real-time weather data for spoilage predictions.
+Kaggle API: Synthetic datasets for training AI models.
+Blockchain: Stellar Testnet ledger for donation tracking.
 
-
-Contributing
-
-Fork the repository.
-Create a feature branch: git checkout -b feature/your-feature.
-Commit changes: git commit -m "Add your feature".
-Push to branch: git push origin feature/your-feature.
-Open a pull request with a detailed description.
-
-Please follow the Code of Conduct and ensure tests pass:
-pytest backend/tests/
+Folder Structure
+zero-waste-energy-optimizer/
+├── backend/
+│   ├── analytics/              # Visualizations (HTML, PNG, CSV, Excel)
+│   ├── *.py                   # Flask APIs, AI, blockchain
+│   └── requirements.txt
+├── frontend/
+│   ├── public/
+│   │   └── assets/            # Images, Lottie animations
+│   └── streamlit_app.py
+├── README.md
+└── .gitignore
 
 License
-MIT License. See LICENSE for details.
-Acknowledgments
-Inspired by sustainability advocates like Sasha Luciani (xAI) and Bill Weihl (ClimateVoice). Built with ❤️ for a zero-waste future.
+MIT License. See LICENSE.
+
+Contact: Adamya Sharma (adamya@example.com)GitHub: adamya04Demo: http://localhost:8501```
