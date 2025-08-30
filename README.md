@@ -151,42 +151,6 @@ OpenWeather API: Real-time weather data for environmental impact analysis.
 Kaggle API: Synthetic datasets for model training.
 Blockchain: Web3-based ledger for donation and sustainability tracking.
 
-Folder Structure
-zero-waste-energy-optimizer/
-├── backend/
-│   ├── analytics/              # PNG, HTML, CSV, Excel visualizations
-│   ├── app.py                 # Main Flask API with WebSockets
-│   ├── data_collection.py     # Kaggle API, IoT data
-│   ├── iot_integration.py     # OpenWeatherMap API
-│   ├── data_cleaning.py       # Data cleaning
-│   ├── feature_engineering.py # Feature engineering
-│   ├── feature_selection.py   # Feature selection
-│   ├── model_development.py   # Multimodal AI models
-│   ├── model_evaluation.py    # Evaluation with visualizations
-│   ├── database_setup.py      # PostgreSQL setup
-│   ├── data_simulation.py     # Synthetic data generation
-│   ├── deploy_azure.py        # Azure deployment
-│   ├── agentic_ai.py          # Hugging Face agent
-│   ├── blockchain_integration.py # Web3 donation/sustainability tracking
-│   └── requirements.txt       # Dependencies
-├── frontend/
-│   ├── public/
-│   │   └── assets/            # Images and Lottie animations
-│   │       ├── banana.png
-│   │       ├── apple.png
-│   │       ├── berries.png
-│   │       ├── lettuce.png
-│   │       ├── logo.png
-│   │       ├── eco-icon.svg
-│   │       ├── store-icon.svg
-│   │       ├── chat-icon.svg
-│   │       ├── eco-animation.json
-│   │       ├── sdg-animation.json
-│   │       ├── carbon-footprint.json
-│   │   ├── particle-bg.js     # Optional JS for background effects
-│   └── streamlit_app.py       # Streamlit frontend
-├── README.md                  # Instructions
-└── .gitignore                 # Ignore file
 
 Contributing
 
@@ -203,5 +167,3 @@ License
 MIT License. See LICENSE for details.
 Acknowledgments
 Inspired by sustainability advocates like Sasha Luciani (xAI) and Bill Weihl (ClimateVoice). Built with ❤️ for a zero-waste future.
-
-Contact: [Your Name] (your.email@example.com)GitHub: yourusernameDemo: Access at http://localhost:8501 after setup.
