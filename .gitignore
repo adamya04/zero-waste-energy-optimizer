@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+*.egg
+dist/
+build/
+
+# Virtual environments
+backend/venv/
+frontend/venv/
+env/
+.venv/
+
+# Environment variables
+.env
+*.env
+
+# Data files
+backend/data/
+backend/data/*
+*.csv
+*.pkl
+*.keras
+*.pt
+*.json  # Excludes contract_data.json in backend/data/
+
+# Node.js/React (not used, excluding for cleanup)
+frontend/node_modules/
+frontend/package.json
+frontend/tailwind.config.js
+frontend/vite.config.js
+
+frontend/public/index.html
+frontend/public/favicon.ico
+
+# Logs
+*.log
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Generated reports
+reports/
+
+# Deployment scripts
+deploy/
+*.sh

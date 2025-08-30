@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theme tokens & custom classes */
+.bg-tron-bg {
+  background-color: #0A0A23;
+}
+
+.bg-tron-dark {
+  background-color: #1A1A2E;
+}
+
+.text-magenta-400 {
+  color: #FF00FF;
+}
+
+.shadow-neon {
+  box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #FF00FF;
+}
+
+.text-cyan-400 {
+  color: #00FFFF;
+}
+
+.tron-purple {
+  color: #C71585;
+}
+
+.high-contrast {
+  background-color: #000000;
+  color: #FFFFFF;
+}
+
+.animate-glow {
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #00FFFF, 0 0 10px #00FFFF, 0 0 15px #FF00FF;
+  }
+  to {
+    text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #FF00FF;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin 10s linear infinite;
+}
+
+/* small utility fallbacks for colors in case Tailwind classes not available */
+.bg-tron-dark { background-color: #1A1A2E; }
+.text-cyan-400 { color: #00FFFF; }
