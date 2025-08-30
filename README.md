@@ -126,20 +126,11 @@ OpenWeather API: Real-time weather data for spoilage predictions.
 Kaggle API: Synthetic datasets for training AI models.
 Blockchain: Stellar Testnet ledger for donation tracking.
 
-Folder Structure
-zero-waste-energy-optimizer/
-├── backend/
-│   ├── analytics/              # Visualizations (HTML, PNG, CSV, Excel)
-│   ├── *.py                   # Flask APIs, AI, blockchain
-│   └── requirements.txt
-├── frontend/
-│   ├── public/
-│   │   └── assets/            # Images, Lottie animations
-│   └── streamlit_app.py
-├── README.md
-└── .gitignore
+
 
 License
 MIT License. See LICENSE.
 
-Contact: Adamya Sharma (adamya@example.com)GitHub: adamya04Demo: http://localhost:8501```
+Contact: Adamya Sharma (adamyasharma7476@gmail.com)
+GitHub: adamya04
+Demo: http://localhost:8501```
